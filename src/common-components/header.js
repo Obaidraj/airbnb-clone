@@ -15,7 +15,7 @@ const Header = () => {
         <header className="flex items-center justify-between">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <a className="default-company-logo">
-              <span className="sr-only">Your Company</span>
+              {/* <span className="sr-only">Your Company</span> */}
               <img src={DefaulLogo} alt="" width={"190px"} />
             </a>
           </div>

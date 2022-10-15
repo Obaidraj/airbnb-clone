@@ -7,8 +7,8 @@ import { RadioGroup } from "@headlessui/react";
 
 import { MenuList } from "../helper/models/menu";
 
-const MenuCarousel = (props) => {
-  const [plan, setPlan] = useState("startup");
+const MenuCarousel = ({ GetUpdatedValue }) => {
+  const [plan] = useState("startup");
   var settings = {
     dots: true,
     infinite: false,
@@ -18,11 +18,11 @@ const MenuCarousel = (props) => {
     variableWidth: true,
   };
   useEffect(() => {
-    props?.GetUpdatedValue(plan);
+    GetUpdatedValue(plan);
   }, [plan]);
   return (
     <>
-      <div className="carousel-menu mb-3">
+      <div className="carousel-menu mb-3 overflow-hidden">
         <RadioGroup>
           <Slider {...settings}>
             {MenuList?.map((menu) => {

@@ -7,6 +7,7 @@ import { LoadingPosts } from "./common-components/loading-lazy-content";
 import Footer from "./common-components/footer";
 import { wrapper } from "./core/wrapper/wrapper";
 import { useEffect, useState, useRef } from "react";
+
 import { v4 as uuidv4 } from "uuid";
 import useLazyLoad from "./core/hooks/useLazyLoad";
 
@@ -46,10 +47,11 @@ const App = () => {
           while (index < response?.hits?.length) {
             listingRecord.push({
               id: uuidv4(),
-              title: "India, Sirinagar",
+              rating: Math.floor(Math.random() * (6 - 1 + 1) + 1),
+              title: "Pakistan, Islamabad",
               images: response?.hits.slice(index, index + 3),
-              address: "Ayubia National Park",
-              date_created: "16–23 Oct",
+              address: "E-14 Islamabad",
+              date_created: "Oct 16 – 21",
               price: Math.floor(Math.random() * 1000) + 500,
             });
             index += 3;
@@ -98,9 +100,22 @@ const App = () => {
         </div>
         <div className=" bg-white">
           <div className="container-fluid">
-            <MenuCarousel
-              GetUpdatedValue={(event) => GetUpdateValueOnMenuChanged(event)}
-            />
+            <div className="row">
+              <div className="col-11">
+                <MenuCarousel
+                  GetUpdatedValue={(event) =>
+                    GetUpdateValueOnMenuChanged(event)
+                  }
+                />
+              </div>
+              <div className="col-1 mt-2">
+                <div className="row">
+                  <div className="col-10 border p-1 rounded-2 fs-4 text-center">
+                    <i class="fa-solid fa-filter"></i> Filter
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
