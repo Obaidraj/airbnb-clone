@@ -10,7 +10,8 @@ import { useEffect, useState, useRef } from "react";
 
 import { v4 as uuidv4 } from "uuid";
 import useLazyLoad from "./core/hooks/useLazyLoad";
-
+import { FiFilter, FiSearch } from "react-icons/fi";
+import { BsArrowUpRightCircleFill } from "react-icons/bs";
 const App = () => {
   const triggerRef = useRef(null);
   const [listingProperty, setlistingProperty] = useState([]);
@@ -95,20 +96,44 @@ const App = () => {
   return (
     <>
       <div className="sticky top-0 z-40 bg-white">
-        <div className="mb-2 border-b-2">
+        <div className="mb-2 border-b-2 d-none d-lg-block">
           <Header />
+        </div>
+        <div className="flex justify-center mb-2 border-b-2 d-md-none d-block w-96 pl-4">
+          <div>
+            <div className="header-centerlized-menu">
+              <button className="right" type="button">
+                <div className="px-3">
+                  <FiSearch size={38} className="my-auto" />
+                </div>
+              </button>
+              <span></span>
+              <div className="left" type="button">
+                <div className="px-3">
+                  Where to? <br />
+                  Anywhere . Any week . Add guests
+                </div>
+              </div>
+              <span></span>
+              <button className="right" type="button">
+                <div className="px-3">
+                  <BsArrowUpRightCircleFill size={38} className="my-auto" />
+                </div>
+              </button>
+            </div>
+          </div>
         </div>
         <div className=" bg-white">
           <div className="container-fluid">
             <div className="row">
-              <div className="col-11">
+              <div className="col-lg-11 col-sm-12">
                 <MenuCarousel
                   GetUpdatedValue={(event) =>
                     GetUpdateValueOnMenuChanged(event)
                   }
                 />
               </div>
-              <div className="col-1 mt-2">
+              <div className="col-1 mt-2 d-none d-lg-block">
                 <div className="row">
                   <div className="col-10 border p-1 rounded-2 fs-4 text-center">
                     <i class="fa-solid fa-filter"></i> Filter
@@ -120,7 +145,7 @@ const App = () => {
         </div>
       </div>
       <div className="container-fluid">
-        <div className="grid gap-4 grid-cols-4 m-5">
+        <div className="grid gap-4 grid-cols-1 m-5 md:grid-cols-4">
           {listingProperty?.map((listing, index) => {
             return <PropertyCard key={index} property={listing} />;
           })}
@@ -129,7 +154,9 @@ const App = () => {
           <LoadingPosts />
         </div>
       </div>
-      <Footer />
+      <div>
+        <Footer />
+      </div>
     </>
   );
 };

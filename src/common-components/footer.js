@@ -1,6 +1,9 @@
 import React from "react";
 import { FiGlobe, FiChevronUp } from "react-icons/fi";
 import { BiPound, BiMapAlt } from "react-icons/bi";
+import { BsSearch } from "react-icons/bs";
+import { AiOutlineHeart } from "react-icons/ai";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -9,13 +12,13 @@ const Footer = () => {
         <div className="flex justify-center">
           <button
             type="button"
-            className="flex items-center p-3 text-white bg-slate-700 rounded-full"
+            className="flex items-center p-3 text-white bg-slate-700 rounded-full mobleScreen"
           >
             Show map <BiMapAlt size={18} className="mt-1 ml-2" />{" "}
           </button>
         </div>
       </div>
-      <footer className="fixed bottom-0 left-0 z-20 w-full bg-white border-t border-gray-200 shadow">
+      <footer className="d-none d-lg-block fixed bottom-0 left-0 z-20 w-full bg-white border-t border-gray-200 shadow">
         <div className="container">
           <div className="flex items-center justify-between py-3">
             <div className="footer-menu grow">
@@ -58,6 +61,21 @@ const Footer = () => {
                 <span className="hover:underline">Support & resources</span>
                 <FiChevronUp className="ml-2" />
               </button>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <footer className="d-lg-none d-sm-block fixed bottom-0 left-0 z-20 w-full bg-white border-t border-gray-200 shadow">
+        <div className="container">
+          <div className="flex justify-evenly py-3">
+            <div>
+              <BsSearch size={35} />
+            </div>
+            <div>
+              <AiOutlineHeart size={35} />
+            </div>
+            <div>
+              <FaRegUserCircle size={35} />
             </div>
           </div>
         </div>

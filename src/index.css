@@ -163,3 +163,9 @@ div {
   --font-display: Circular;
   --font-body: Circular;
 }
+@media only screen and (max-width: 600px) {
+  .mobleScreen {
+    position: relative;
+    bottom: 30px;
+  }
+}
